@@ -18,7 +18,7 @@ module PayPal::SDK::Core
             http.open_timeout = config.http_timeout
             http.read_timeout = config.http_timeout
           end
-          configure_ssl(http) if uri.scheme == "https"
+          http.use_ssl = uri.scheme == "https"
         end
       end
 
